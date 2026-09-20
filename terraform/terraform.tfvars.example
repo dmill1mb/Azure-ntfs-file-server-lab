@@ -1,0 +1,12 @@
+# Copy to terraform.tfvars (gitignored) and fill in real values.
+
+resource_group_name   = "RG-FileServerLab"
+location               = "centralus"
+admin_username          = "labadmin"
+allowed_rdp_source_ip  = "203.0.113.10"   # your real public IP
+key_vault_name          = "kv-fslab-<pick-something-unique>"
+
+# admin_password is deliberately NOT set here.
+# Set it per terminal session instead, so it's never written to disk:
+#   PowerShell:  $env:TF_VAR_admin_password = "..."
+#   bash/zsh:    export TF_VAR_admin_password="..."

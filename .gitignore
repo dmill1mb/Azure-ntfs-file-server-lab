@@ -1,0 +1,12 @@
+# Real values and state — never commit these
+terraform/terraform.tfvars
+terraform/*.tfvars
+!terraform/terraform.tfvars.example
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform/
+crash.log
+crash.*.log
+
+# Commit .terraform.lock.hcl — it pins exact provider versions so a
+# clone of this repo reproduces the same build. Don't add it here.
