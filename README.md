@@ -69,7 +69,7 @@ All confirmed manually via RDP against the live build.
 
 ## Troubleshooting log
 
-Real errors hit rebuilding this, kept here instead of cleaned away — a writeup that only shows the working path teaches less than one that shows what actually went wrong:
+Real errors hit during building:
 
 - **`versions.tf` constraint operators** — used `>=` instead of `~>` on provider version pins (providers want the pessimistic operator to guard against breaking changes on `terraform init`); then over-corrected `required_version` itself to `~> 1.5.0`, which would have broken `init` against a newer installed Terraform CLI. `required_version` wants `>=` — Terraform's CLI keeps strong backward compatibility across 1.x, providers don't.
 - **Duplicate `azurerm_network_interface "fs01"` block** in `main.tf` — a plain copy-paste duplicate, caught by Terraform's own "duplicate resource configuration" error.
